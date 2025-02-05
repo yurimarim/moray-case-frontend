@@ -11,7 +11,7 @@ Os dados são fornecidos por meio de dois endpoints de uma API que já foi desen
 - GET /bairros-geojson
 - GET /populacao
 
-_(Ver um exemplo de resposta na pasta `src/server/`)_
+_(Ver um exemplo de resposta na pasta `src/backend/`)_
 
 ## Rodando a aplicação localmente
 Certifique-se de que você tenha o Node (v18) instalado:
