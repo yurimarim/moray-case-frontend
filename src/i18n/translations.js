@@ -9,16 +9,16 @@ export const resources = {
 
       // NeighborhoodModal
       'populational-data': 'Dados Populacionais',
-      'neighborhood-properties': 'Propriedades do Bairro',
-      'neighborhood-name': 'Nome',
+      'neighborhood-properties': 'Propriedades',
+      'neighborhood-name': 'Bairro',
       'neighborhood-sector': 'Setor',
       'neighborhood-zone': 'Zona',
       'chart-title': 'Análise Populacional ao Longo dos Anos',
       'chart-label': 'População',
-      'chart-legend': 'Legenda',
+      'chart-legend': 'Taxa Anual Populacional',
       'chart-legend-color': 'Cor',
-      'chart-legend-min-value': 'Ano mais baixo',
-      'chart-legend-max-value': 'Ano mais alto',
+      'chart-legend-min-value': 'Baixa',
+      'chart-legend-max-value': 'Alta',
       'chart-legend-average-value': 'Média',
       'error-title': 'Ocorreu um problema ao retornar os dados.'
     }
@@ -33,16 +33,16 @@ export const resources = {
 
       // NeighborhoodModal
       'populational-data': 'Population Data',
-      'neighborhood-properties': 'Neighborhood Properties',
-      'neighborhood-name': 'Name',
+      'neighborhood-properties': 'Properties',
+      'neighborhood-name': 'Neighborhood',
       'neighborhood-sector': 'Sector',
       'neighborhood-zone': 'Zone',
       'chart-title': 'Population Analysis Over the Years',
       'chart-label': 'Population',
-      'chart-legend': 'Legend',
+      'chart-legend': 'Annual Population Rate',
       'chart-legend-color': 'Color',
-      'chart-legend-min-value': 'Lowest year',
-      'chart-legend-max-value': 'Highest year',
+      'chart-legend-min-value': 'Low',
+      'chart-legend-max-value': 'High',
       'chart-legend-average-value': 'Average',
       'error-title': 'There was a problem returning the data.'
     }
@@ -57,16 +57,16 @@ export const resources = {
 
       // NeighborhoodModal
       'populational-data': 'Datos Poblacionales',
-      'neighborhood-properties': 'Propiedades del Barrio',
-      'neighborhood-name': 'Nombre',
+      'neighborhood-properties': 'Propiedades',
+      'neighborhood-name': 'Barrios',
       'neighborhood-sector': 'Sector',
       'neighborhood-zone': 'Zona',
       'chart-title': 'Análisis de la población a lo largo de los años',
       'chart-label': 'Población',
-      'chart-legend': 'Leyenda',
+      'chart-legend': 'Tasa de población anual',
       'chart-legend-color': 'Color',
-      'chart-legend-min-value': 'Año más bajo',
-      'chart-legend-max-value': 'Año más alto',
+      'chart-legend-min-value': 'Bajo',
+      'chart-legend-max-value': 'Alto',
       'chart-legend-average-value': 'Promedio',
       'error-title': 'Hubo un problema al devolver los datos.'
     }
