@@ -159,6 +159,6 @@ NeighborhoodDataModal.propTypes = {
     ano: PropTypes.string,
     populacao: PropTypes.number,
   })),
-  isOpen: PropTypes.bool,
-  toggleModalOpen: PropTypes.func
+  isOpen: PropTypes.bool.isRequired,
+  toggleModalOpen: PropTypes.func.isRequired,
 };
