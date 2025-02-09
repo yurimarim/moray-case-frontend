@@ -48,6 +48,6 @@ export function GreetingsModal({
 }
 
 GreetingsModal.propTypes = {
-  isOpen: PropTypes.bool,
-  closeModal: PropTypes.func
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
 };
