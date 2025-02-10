@@ -11,7 +11,7 @@ class ContactsService {
   }
 
   async populationalData() {
-    const response = await this.httpClient.get('populacao');
+    const response = await this.httpClient.get('/populacao');
     return response;
   }
 }
