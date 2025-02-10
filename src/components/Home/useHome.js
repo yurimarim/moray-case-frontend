@@ -9,13 +9,16 @@ export function useHome() {
   const [isNeighborhoodModalOpen, setIsNeighborhoodModalOpen] = useState(false);
   const [isGreetingsModalOpen, setIsGreetingsModalOpen] = useState(true);
   const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const getGeoJsonData = useCallback(async () => {
     try {
       const response = await HomeService.getNeighborhood();
       setGeojson(response);
     } catch (error) {
-      console.log('Erro ao carregar os dados de bairro', error);
+      setHasError(true);
+      console.log('Erro ao carregar as demarcações do mapa.', error);
     }
   }, []);
 
@@ -24,6 +27,7 @@ export function useHome() {
       const response = await HomeService.populationalData();
       setNeighborhoodsPopulationalData(response);
     } catch (error) {
+      setHasError(true);
       console.log('Erro ao carregar os dados populacionais do bairro.', error);
     }
   }, []);
@@ -39,14 +43,16 @@ export function useHome() {
   function handleCheckPopulationalData(event) {
     const { feature } = event.sourceTarget;
 
-    if (neighborhoodsPopulationalData) {
-      const filteredData = neighborhoodsPopulationalData.filter(
-        (item) => item.id_geometria === feature.properties.id
-      );
-
-      setFilteredNeighborhoodPopulationalInfo(filteredData);
+    if(!Array.isArray(neighborhoodsPopulationalData)) {
+      setHasError(true);
+      console.log('Ocorreu um erro ao obter os dados populacionais.');
     }
 
+    const filteredData = neighborhoodsPopulationalData.filter(
+      (item) => item.id_geometria === feature.properties.id
+    );
+
+    setFilteredNeighborhoodPopulationalInfo(filteredData);
     setNeighborhoodPropertiesInfo(feature.properties);
     setIsNeighborhoodModalOpen(true);
   }
@@ -58,9 +64,13 @@ export function useHome() {
   function handleCloseGreetingsModal() {
     setIsGreetingsModalOpen(false);
   }
-
+  
   function handleToggleMenuModalOpen() {
     setIsMenuModalOpen(!isMenuModalOpen);
+  }
+
+  function handleCloseErrorModal() {
+    setIsErrorModalOpen(false);
   }
 
   return {
@@ -73,6 +83,9 @@ export function useHome() {
     geojson,
     handleCheckPopulationalData,
     isMenuModalOpen,
-    handleToggleMenuModalOpen
+    handleToggleMenuModalOpen,
+    hasError,
+    isErrorModalOpen,
+    handleCloseErrorModal
   };
 }

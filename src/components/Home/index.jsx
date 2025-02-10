@@ -7,6 +7,7 @@ import { NeighborhoodDataModal } from '../NeighborhoodDataModal';
 import { Widget } from '../Widget';
 import { useHome } from './useHome';
 import { MenuModal } from '../MenuModal';
+import { ErrorModal } from '../ErrorModal';
 
 export function Home() {
   const {
@@ -19,8 +20,13 @@ export function Home() {
     geojson,
     handleCheckPopulationalData,
     isMenuModalOpen,
-    handleToggleMenuModalOpen
+    handleToggleMenuModalOpen,
+    hasError,
+    isErrorModalOpen,
+    handleCloseErrorModal
   } = useHome();
+
+  const hasGeoJson = geojson && !hasError;
 
   return (
     <>
@@ -41,6 +47,13 @@ export function Home() {
         toggleModalOpen={handleToggleMenuModalOpen}
       />
 
+      {hasError && (
+        <ErrorModal
+          isOpen={isErrorModalOpen}
+          closeModal={handleCloseErrorModal}
+        />
+      )}
+
       <Widget handleClick={handleToggleMenuModalOpen} />
 
       <MapContainer
@@ -53,7 +66,7 @@ export function Home() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {geojson && (
+        {hasGeoJson && (
           <GeoJSON
             data={geojson}
             style={{ color: '#6c58ff' }}
