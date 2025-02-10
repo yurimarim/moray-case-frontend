@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
+import HomeService from "../../services/HomeService";
 
 export function useHome() {
   const [geojson, setGeojson] = useState(null);
@@ -8,11 +8,12 @@ export function useHome() {
   const [neighborhoodPropertiesInfo, setNeighborhoodPropertiesInfo] = useState(null);
   const [isNeighborhoodModalOpen, setIsNeighborhoodModalOpen] = useState(false);
   const [isGreetingsModalOpen, setIsGreetingsModalOpen] = useState(true);
+  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
 
   const getGeoJsonData = useCallback(async () => {
     try {
-      const response = await axios.get('/bairros-geojson');
-      setGeojson(response?.data);
+      const response = await HomeService.getNeighborhood();
+      setGeojson(response);
     } catch (error) {
       console.log('Erro ao carregar os dados de bairro', error);
     }
@@ -20,9 +21,8 @@ export function useHome() {
 
   const getNeighborhoodsPopulationalData = useCallback(async () => {
     try {
-      // throw new Error;
-      const response = await axios.get('/populacao');
-      setNeighborhoodsPopulationalData(response?.data);
+      const response = await HomeService.populationalData();
+      setNeighborhoodsPopulationalData(response);
     } catch (error) {
       console.log('Erro ao carregar os dados populacionais do bairro.', error);
     }
@@ -59,6 +59,10 @@ export function useHome() {
     setIsGreetingsModalOpen(false);
   }
 
+  function handleToggleMenuModalOpen() {
+    setIsMenuModalOpen(!isMenuModalOpen);
+  }
+
   return {
     isGreetingsModalOpen,
     handleCloseGreetingsModal,
@@ -68,5 +72,7 @@ export function useHome() {
     handleToggleNeighborhoodModalOpen,
     geojson,
     handleCheckPopulationalData,
+    isMenuModalOpen,
+    handleToggleMenuModalOpen
   };
 }
