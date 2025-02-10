@@ -1,3 +1,17 @@
+# Implementações
+- Tipagem com Prop-Types
+- Implementação de um tema padrão.
+- Modal de boas-vindas.
+- Modal com os dados populacionais.
+- Implementação do gráfico usando chart.js.
+- Tradução da aplicação em três idiomas (português, inglês e espanhol).
+- Implementação do hook useHome para separação de lógica e UI.
+- Ícones com @phosporicons.
+- Animações de entrada/saída do Modal.
+- Implementação de inversão de dependência com HttpClient.
+- Classe APIErrors para capturar errors.
+- Tratamento de erros.
+
 # Case para posição de Frontend Developer na Moray
 Você foi alocado em um projeto para finalizar uma tarefa pendente de um outro desenvolvedor que precisou deixar o time. Esse projeto é uma aplicação frontend criada com o propósito de exibir a evolução populacional dos bairros de uma cidade.
 
