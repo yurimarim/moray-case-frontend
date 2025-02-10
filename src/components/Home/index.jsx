@@ -4,7 +4,9 @@ import { TileLayer } from 'react-leaflet/TileLayer';
 import 'leaflet/dist/leaflet.css';
 import { GreetingsModal } from '../GreetingsModal';
 import { NeighborhoodDataModal } from '../NeighborhoodDataModal';
+import { Widget } from '../Widget';
 import { useHome } from './useHome';
+import { MenuModal } from '../MenuModal';
 
 export function Home() {
   const {
@@ -16,6 +18,8 @@ export function Home() {
     handleToggleNeighborhoodModalOpen,
     geojson,
     handleCheckPopulationalData,
+    isMenuModalOpen,
+    handleToggleMenuModalOpen
   } = useHome();
 
   return (
@@ -31,6 +35,13 @@ export function Home() {
         isOpen={isNeighborhoodModalOpen}
         toggleModalOpen={handleToggleNeighborhoodModalOpen}
       />
+
+      <MenuModal
+        isOpen={isMenuModalOpen}
+        toggleModalOpen={handleToggleMenuModalOpen}
+      />
+
+      <Widget handleClick={handleToggleMenuModalOpen} />
 
       <MapContainer
         style={{ height: '100vh' }}
