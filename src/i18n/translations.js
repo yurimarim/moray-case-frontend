@@ -20,7 +20,11 @@ export const resources = {
       'chart-legend-min-value': 'Baixa',
       'chart-legend-max-value': 'Alta',
       'chart-legend-average-value': 'Média',
-      'error-title': 'Ocorreu um problema ao retornar os dados.'
+      'error-title': 'Ocorreu um problema ao retornar os dados.',
+
+      // MenuModal
+      'contacts': 'Contatos',
+      'change-language': 'Alterar idioma'
     }
   },
   en: {
@@ -44,7 +48,11 @@ export const resources = {
       'chart-legend-min-value': 'Low',
       'chart-legend-max-value': 'High',
       'chart-legend-average-value': 'Average',
-      'error-title': 'There was a problem returning the data.'
+      'error-title': 'There was a problem returning the data.',
+
+      // MenuModal
+      'contacts': 'Contacts',
+      'change-language': 'Change language'
     }
   },
   es: {
@@ -68,7 +76,11 @@ export const resources = {
       'chart-legend-min-value': 'Bajo',
       'chart-legend-max-value': 'Alto',
       'chart-legend-average-value': 'Promedio',
-      'error-title': 'Hubo un problema al devolver los datos.'
+      'error-title': 'Hubo un problema al devolver los datos.',
+
+      // MenuModal
+      'contacts': 'Contactos',
+      'change-language': 'Cambiar idioma'
     }
   }
 }
