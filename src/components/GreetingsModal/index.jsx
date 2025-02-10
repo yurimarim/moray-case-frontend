@@ -5,19 +5,21 @@ import Button from "../Button";
 import morayLogoPositive from '../../assets/images/Moray_Logo_Positive.png';
 import { LanguageSwitch } from "../LanguageSwitch";
 import { useTranslation } from "react-i18next";
+import useAnimatedUnmount from "../../hooks/useAnimatedUnmount";
 
 export function GreetingsModal({
   isOpen,
   closeModal
 }) {
   const { t } = useTranslation();
+  const { shouldRender, animatedElementRef } = useAnimatedUnmount(isOpen);
 
-  if (!isOpen) return null;
+  if (!shouldRender) return null;
 
   return (
     <ReactPortal containerId="greetings-modal">
-      <Overlay>
-        <Container>
+      <Overlay $isLeaving={!isOpen} ref={animatedElementRef}>
+        <Container $isLeaving={!isOpen}>
           <div className='header'>
             <Image
               src={morayLogoPositive}

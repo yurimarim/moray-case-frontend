@@ -17,6 +17,7 @@ import {
   Overlay,
   TableHead
 } from "./styles";
+import useAnimatedUnmount from '../../hooks/useAnimatedUnmount';
 
 export function NeighborhoodDataModal({
   neighborhoodData,
@@ -25,6 +26,8 @@ export function NeighborhoodDataModal({
   toggleModalOpen,
 }) {
   const { t } = useTranslation();
+
+  const { shouldRender, animatedElementRef } = useAnimatedUnmount(isOpen);
 
   const values = useMemo(() => {
     const dataValues = (filteredNeighborhoodPopulationalInfo ?? []).map(item => item.populacao);
@@ -36,12 +39,12 @@ export function NeighborhoodDataModal({
     };
   }, [filteredNeighborhoodPopulationalInfo]);
 
-  if (!isOpen) return null;
+  if (!shouldRender) return null;
 
   return (
     <ReactPortal containerId='neighborhood-modal'>
-      <Overlay>
-        <Container>
+      <Overlay $isLeaving={!isOpen} ref={animatedElementRef}>
+        <Container $isLeaving={!isOpen}>
           <div className='header'>
             <h3>
               {`${t('populational-data')}: ${neighborhoodData.name}`}
